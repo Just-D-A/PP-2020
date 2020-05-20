@@ -77,7 +77,7 @@ DWORD WINAPI ThreadProc(CONST LPVOID lpParam)
 
 		int finishWidth = (i + 1) * longWidth;
 		thread->indexStartWidth = i * longWidth;
-		thread->indexFinisWidth = finishHeight + (i == threadCount - 1 ? width - finishHeight : 0);
+		thread->indexFinisWidth = finishWidth + (i == threadCount - 1 ? width - finishWidth : 0);
 		
 		Blur(*thread);
 	}
