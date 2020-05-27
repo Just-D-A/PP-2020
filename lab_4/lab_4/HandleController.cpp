@@ -4,9 +4,8 @@ void HandleController::Run(int argc, char* argv[])
 {
 	if (strcmp(argv[1], "/") == 0)
 	{
-		std::cout << "Input should look:\n"
-			"SchedulerBlurBmp.exe <input image> <output image> <number threads> <number core> <blur radius> <threads priorities>\n"
-			"Options priority:\n"
+		std::cout << "lab_4.exe <input image> <output image> <number threads> <number core> <threads priorities>\n"
+			"Priority types:\n"
 			"-1 - below normal\n 0 - normal\n 1 - above normal\n";
 		return;
 	}
