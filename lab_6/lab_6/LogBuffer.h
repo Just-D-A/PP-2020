@@ -1,14 +1,22 @@
 #pragma once
 #include "LinkedList.h"
-#include <Windows.h>
+#include <windows.h>
 #include <mutex>
 
 class LogBuffer {
 public:
-	LogBuffer();
-	void push(std::string val, std::mutex& mtx);
+	LogBuffer(std::mutex& mtx);
+	void push(std::string val);
 	void checkEmpty();
+	void NotifyThread();
+	void StartThread();
+	
+	
 private:
+	static DWORD WINAPI LogSizeMonitoringThread(CONST LPVOID lp_param);
 	LinkedList m_linkedList;
 	int m_fileNum;
+	std::mutex& m_mutex;
+	HANDLE overflow_event;
+	HANDLE overflow_thread;
 };

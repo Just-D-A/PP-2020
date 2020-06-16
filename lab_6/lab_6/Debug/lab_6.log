@@ -1,4 +1,8 @@
 ﻿  BMP.cpp
+  HandleController.cpp
+C:\Users\prosp\source\repos\lab_6\lab_6\HandleController.cpp(2,10): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+  LinkedList.cpp
+  LogBuffer.cpp
   lab_6.cpp
   Создание кода...
   lab_6.vcxproj -> C:\Users\prosp\source\repos\lab_6\Debug\lab_6.exe
