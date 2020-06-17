@@ -8,7 +8,8 @@ using namespace std;
 
 const int MAX_LINKED_LIST_SIZE = 10000;
 
-struct Node {
+struct Node 
+{
     Node() : m_next(NULL) { }
 
     Node(const std::string& val) : m_val(val), m_next(NULL) { }
@@ -20,7 +21,8 @@ struct Node {
     Node* m_next;
 };
 
-class LinkedList{
+class LinkedList
+{
 public:
     LinkedList();
     void append(const std::string& val);
@@ -28,8 +30,12 @@ public:
     bool checkSize();
     void writeAndClearList(int fileNum);
     Node* getHead();
+    int getSize();
+    bool isEnd();
+    void itIsEnd();
     
 private:
     Node* m_head;
     int m_size;
+    bool m_end;
 };

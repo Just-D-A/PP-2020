@@ -2,7 +2,7 @@
 #include <mutex>
 
 std::mutex mtx;
-LogBuffer logB = LogBuffer();
+LogBuffer logB = LogBuffer(mtx);
 
 BMP::BMP(const std::string input, const std::string output, const int threadCount, const int coreCount, const int blurRadius, const std::vector<int>& threadPriorities)
 	: m_input(input)
@@ -66,7 +66,7 @@ void Blur(ThreadData& thread)
 			thread.outputImage->set_pixel(width, height, colour);
 			
 
-			logB.push(to_string(thread.threadNumber) + " " + to_string(GetTimeDiff(thread.startTime)), mtx);
+			logB.push(to_string(thread.threadNumber) + " " + to_string(GetTimeDiff(thread.startTime)));
 		
 		}
 	}
@@ -113,7 +113,6 @@ std::vector<ThreadData> BMP::GetThreadsData(const bitmap_image& inputImage, bitm
 		threadData.blurRadius = m_blurRadius;
 		threadData.threadCount = m_threadCount;
 		threadData.threadNumber = i;
-		threadData.logFile = new std::ofstream("log" + std::to_string(i) + ".txt");
 		threadData.startTime = start;
 	
 		threadsData.push_back(threadData);

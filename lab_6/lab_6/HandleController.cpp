@@ -1,5 +1,6 @@
 #pragma once
 #include "HandleController.h";
+
 void HandleController::Run(int argc, char* argv[])
 {
 	if (strcmp(argv[1], "/") == 0)
